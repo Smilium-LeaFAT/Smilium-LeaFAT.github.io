@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>Hexo • Posts by &#34;git&#34; tag</title>
+        <link>https://smilium-leafat.github.io</link>
+        <description></description>
+        <language>en</language>
+        <pubDate>Sat, 05 Nov 2022 21:03:52 +0800</pubDate>
+        <lastBuildDate>Sat, 05 Nov 2022 21:03:52 +0800</lastBuildDate>
+        <category>ssh, termux, windows</category>
+        <category>Windows, Python</category>
+        <category>hexo</category>
+        <category>git</category>
+        <category>学业 经济学</category>
+        <category>Arch 输入法</category>
+        <item>
+            <guid isPermalink="true">https://smilium-leafat.github.io/2022/11/05/Windows-for-Git%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</guid>
+            <title>Windows for Git安装与配置</title>
+            <link>https://smilium-leafat.github.io/2022/11/05/Windows-for-Git%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</link>
+            <category>git</category>
+            <pubDate>Sat, 05 Nov 2022 21:03:52 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;参考内容&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#参考内容&#34;&gt;#&lt;/a&gt; 参考内容&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L211a2VzL2FydGljbGUvZGV0YWlscy8xMTU2OTM4MzM=&#34;&gt;Git 详细安装教程（详解 Git 安装过程的每一个步骤）&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>

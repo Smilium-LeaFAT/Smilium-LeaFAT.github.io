@@ -1,0 +1,645 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="Hexo" href="https://smilium-leafat.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Hexo" href="https://smilium-leafat.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="Hexo" href="https://smilium-leafat.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="ssh, termux, windows" />
+
+
+<link rel="canonical" href="https://smilium-leafat.github.io/2022/10/14/Termux-Windows%E9%80%9A%E8%BF%87SSH%E4%BA%A4%E4%BA%92-22-10-14-1856/">
+
+
+
+  <title>
+Termux Windows 通过 SSH 交互 |
+Smilium LeaFAT = Hexo</title>
+<meta name="generator" content="Hexo 6.2.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">Termux Windows 通过 SSH 交互
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2022-10-14 18:56:26">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2022-10-14T18:56:26+08:00">2022-10-14</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Smilium LeaFAT</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipesng5oej20zk0m87d4.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipeudstjqj20zk0m8k3r.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gicliierfjj20zk0m8npd.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipewf5l51j20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gicivghyooj20zk0m8dir.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipet4bz0yj20zk0m8e81.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="https://smilium-leafat.github.io/2022/10/14/Termux-Windows%E9%80%9A%E8%BF%87SSH%E4%BA%A4%E4%BA%92-22-10-14-1856/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Smilium LeaFAT">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Hexo">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h2 id="part-0-序"><a class="markdownIt-Anchor" href="#part-0-序">#</a> Part 0. 序</h2>
+<p>本文始于作者的某些需要接触了 Termux 与 SSH, 在身为小白的摸索当中整理总结出来的一些内容，自身水平有限，行文比较琐碎，如需要请酌情参考.</p>
+<p>仅此做个记录，方便路过翻看的人也方便自己后来查阅。本文中笔者主要想使用 SSH 实现手机与 Windows 互访，需要一台搭载 Windows 系统的机器以及一部安装了 Termux App 的安卓手机 / 平板.</p>
+<h4 id="食用注意"><a class="markdownIt-Anchor" href="#食用注意">#</a> 食用注意</h4>
+<ul>
+<li>
+<p>文章结合了互联网与个人实践，部分参考自个人博客、部分国内外论坛及官方文档，所用参考文献均位于文末 &quot;参考文章&quot; 处，请自行查阅.</p>
+</li>
+<li>
+<p>由于本文主讲 Windows 平台，故如无特别说明，本文在 Windows 平台上的命令操作都在<span class="exturl" data-url="aHR0cHM6Ly9sZWFybi5taWNyb3NvZnQuY29tL2VuLXVzL3dpbmRvd3Mtc2VydmVyL2FkbWluaXN0cmF0aW9uL3dpbmRvd3MtY29tbWFuZHMvcG93ZXJzaGVsbA=="> Windows PowerShell</span> 完成.</p>
+</li>
+<li>
+<p>文章将尽可能完整地介绍使用 SSH 实现 &quot;手机 / 平板 - PC&quot; 互仿，但前期将主要讨论如何从手机端访问 PC 端，PC 端访问手机端将作为补充内容穿插其中以免内容过于冗杂，行文琐碎，如有不便请见谅.</p>
+</li>
+<li>
+<p>本文将着重介绍 SSH 的安装使用，至于 Trtmux 的安装与使用详见<a href="">这里</a>.</p>
+</li>
+</ul>
+<h2 id="part-1-ssh与ssh协议"><a class="markdownIt-Anchor" href="#part-1-ssh与ssh协议">#</a> Part 1. SSH 与 SSH 协议</h2>
+<p>首先，我们来了解一下 SSH 以及 SSH 协议。先看下官方怎么说:</p>
+<blockquote>
+<p><b><a target="_blank" rel="noopener" href="https://www.ssh.com/academy/ssh"> <code>SSH(Secure Shell)</code> </a></b> 指的是一个软件包，支持在不安全的网络上进行安全的系统管理和文件传输。几乎每个数据中心和每个大型企业都使用它。</p>
+</blockquote>
+<blockquote>
+<p>SSH 协议使用加密来保护客户端和服务器之间的连接。所有用户身份验证、命令、输出和文件传输都进行了加密，以防止网络中的攻击。</p>
+</blockquote>
+<p>也就是说 (粗略理解), SSH 是一整套加密通讯服务与手段，包括 SSH 加密算法、传输方式、客户端与服务端等。大致过程为：我们先在自己的设备 (称为客户端 Client) 和想要访问的设备 (称为服务端 Server) 上各自部署好 SSH 服务，设定好加密密钥然后就能进行通讯，通讯的内容经 SSH 协议加密后在公共网络中传输，借此实现在不安全的网络环境中通讯.</p>
+<p>了解完概念，接下来我们将从零开始尝试在服务端和客户端之间搭建 OpenSSH 服务并使用它.</p>
+<h1 id="part-2-服务端的准备"><a class="markdownIt-Anchor" href="#part-2-服务端的准备">#</a> Part 2. 服务端的准备</h1>
+<p>OpenSSH 的操作建议在 PowerShell 上完成，并且最好以<b>管理员</b>身份运行，因为 Powershell 支持一部分 Linux 指令，功能更强大.</p>
+<ol>
+<li>安装 OpenSSH 服务</li>
+</ol>
+<p>OpenSSH 服务包括两部分：服务端和客户端，如果你只想将 Windows 作为 SSH 服务端，只需要安装 OpenSSH 服务器即可，反之只选择安装 OpenSSH 客户端。当然也可以一同安装，实现互相访问. Microsoft 官方给出的 Windows 下安装 OpenSSH 服务有三种方法，任选一种即可.</p>
+<ul>
+<li>通过内置模块方式安装</li>
+</ul>
+<p>最简单的方法，不能保证安装的服务版本使最新的，但开箱即用.</p>
+<p>在 &quot;设置 &gt; 应用和功能 &gt; 可选功能 &gt; 添加功能&quot; 中搜索 “OpenSSH 服务器”(若作为客户端则选择 &quot;OpenSSH 客户端&quot;), 勾选前面的框框，然后点击下方的 &quot;安装&quot;, 等待自动下载即可.</p>
+<ul>
+<li>通过 GitHub 安装</li>
+</ul>
+<p>使用此方法可以获取最新的 SSH 版本。项目地址: <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1Bvd2VyU2hlbGwvT3BlblNTSC1Qb3J0YWJsZQ==">PowerShell/OpenSSH-Portable</span></p>
+<p>注意：通过 GitHub 安装 OpenSSH 可能不适用参考本文章！</p>
+<ul>
+<li>通过 PowerShell 安装</li>
+</ul>
+<p>官方教程地址: <span class="exturl" data-url="aHR0cHM6Ly9sZWFybi5taWNyb3NvZnQuY29tL3poLWNuL3dpbmRvd3Mtc2VydmVyL2FkbWluaXN0cmF0aW9uL29wZW5zc2gvb3BlbnNzaF9pbnN0YWxsX2ZpcnN0dXNlP3NvdXJjZT1yZWNvbW1lbmRhdGlvbnM=">Microsoft: 通过 PowerShell 安装 OpenSSH</span></p>
+<ol start="2">
+<li>获取服务端地址与端口号</li>
+</ol>
+<p>一般来讲，我们使用 SSH 进行访问时需要知道服务端的 ip 地址还有端口号 (例如 GitHub 的 ip 地址是  <code>140.82.112.4</code> ).</p>
+<p>Windows 上查询当前 ip 地址可以在 Powershell 输入 <code>ipconfig</code> , 并在输出结果中找到以下内容:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Wireless LAN adapter WLAN:</span><br><span class="line"></span><br><span class="line">   Connection-specific DNS Suffix  . :</span><br><span class="line">   IPv6 Address. . . . . . . . . . . : xxx:xxx:xxx:xxx:xxx:xxx:xxx:xxx</span><br><span class="line">   Temporary IPv6 Address. . . . . . : xxx:xxx:xxx:xxx:xxx:xxx:xxx:xxx</span><br><span class="line">   Temporary IPv6 Address. . . . . . : xxx:xxx:xxx:xxx:xxx:xxx:xxx:xxx</span><br><span class="line">   Temporary IPv6 Address. . . . . . : xxx:xxx:xxx:xxx:xxx:xxx:xxx:xxx</span><br><span class="line">   Link-local IPv6 Address . . . . . : xxx::xxx:xxx:xxx:xxx</span><br><span class="line">   IPv4 Address. . . . . . . . . . . : xx.xx.xx.xx</span><br><span class="line">   Subnet Mask . . . . . . . . . . . : xx.xx.xx.xx</span><br><span class="line">   IPv4 Address. . . . . . . . . . . : xx.xx.xx.xx</span><br><span class="line">   Subnet Mask . . . . . . . . . . . : xx.xx.xx.xx</span><br><span class="line">   Default Gateway . . . . . . . . . : xx.xx.xx.xx</span><br></pre></td></tr></table></figure>
+<p>其中的  <code>IPv4 Address</code>  后的四组数就是本机当前的 ip 地址.</p>
+<h2 id="对于dhcp分配的ip地址"><a class="markdownIt-Anchor" href="#对于dhcp分配的ip地址">#</a> 对于 DHCP 分配的 ip 地址</h2>
+<p>由于服务端开启 DHCP 会导致 ip 地址发生变化，使得我们难以连接到服务端，因此在条件允许的情况下为服务端关闭 DHCP.</p>
+<p>如果条件不允许 (例如校园网), 可以尝试使用静态 ip. 具体方法为:</p>
+<p>在任务栏的 &quot;网络&quot; 处右键，选择 &quot;打开’网络和 Internet’设置&quot;, 选择当前连接到的网络，找到 &quot;ip 设置&quot;, 选择 &quot;编辑&quot;, 将 &quot;自动 (DHCP)“改为&quot; 手动”, 然后打开 &quot;ipv4&quot;, ip 地址填入上文获取到的 ip 地址，填写 &quot;子网前缀长度&quot;、“网关”、“首选 DNS&quot;和&quot; 备用 DNS”, 最后点击保存，等待重新连接网络即可.</p>
+<ul>
+<li>关于子网前缀长度与网关的关系可以上网搜索，或者从手机处获取.</li>
+</ul>
+<ol start="3">
+<li>查看客户端用户名称</li>
+</ol>
+<p>在 PowerShell 中查看当前用户名可以输入以下命令:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">whoami</span><br></pre></td></tr></table></figure>
+<p>返回的格式为 &quot;你的 PC 名 \ 当前登录的用户名&quot;</p>
+<h1 id="part-3-客户端的准备"><a class="markdownIt-Anchor" href="#part-3-客户端的准备">#</a> Part 3. 客户端的准备</h1>
+<ol>
+<li>安装 OpenSSH 服务</li>
+</ol>
+<p>Termux 安装 OpenSSH 只需要一条命令即可:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pkg install openssh</span><br><span class="line"><span class="comment"># 或者使用下面的简写命令, 两者都是安装 OpenSSH 的命令</span></span><br><span class="line">pkg i openssh</span><br></pre></td></tr></table></figure>
+<p>需要注意的是，Termux 模拟的系统不同于一般的 Linux, 它的<font color=#D73C4E><b>SSH 服务端与客户端安装是一起的</b></font>, 运行上述命令会一同安装好服务端与客户端，而真正的 Linux 系统两者是分开安装的.</p>
+<ol start="2">
+<li>查看本机 ip 地址</li>
+</ol>
+<p>在 Termux 终端运行以下命令 (请注意第二个字母是 <code>f</code>  不是 <code>p</code> !):</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
+<p>在输出结果中找到以下部分 (通常在最后):</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">wlan0: flags=xxxx&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu xxxx</span><br><span class="line">        inet xxx.xxx.xxx.xxx  netmask xxx.xxx.xxx.xxx  broadcast xxx.xxx.xxx.xxx</span><br><span class="line">        inet6 xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx  prefixlen xxx  scopeid 0x0&lt;global&gt;</span><br><span class="line">        inet6 xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx  prefixlen xxx  scopeid 0x0&lt;global&gt;</span><br><span class="line">        inet6 xxxx::xxxx:xxxx:xxxx:xxxx  prefixlen xxx  scopeid 0x20&lt;link&gt;</span><br><span class="line">        unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 1000  (UNSPEC)</span><br><span class="line">        RX packets xxxxxx  bytes xxxxx (xxx MiB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets xxxxxx  bytes xxxxx (xxxx MiB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br></pre></td></tr></table></figure>
+<p>其中 inet 后的四组数就是本机的 ip 地址.</p>
+<ol start="3">
+<li>查看用户名</li>
+</ol>
+<p>与 PowerShell 一样，查看用户名只需要输入以下命令:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">whoami</span><br></pre></td></tr></table></figure>
+<p>返回格式一般类似 &quot;xx_xxx&quot; 这样带下划线的名称，每个用户返回的名称都不一样. <b>记住这个用户名，后面要用到.</b></p>
+<h1 id="part-3-使用用户名与密码连接"><a class="markdownIt-Anchor" href="#part-3-使用用户名与密码连接">#</a> Part 3. 使用用户名与密码连接</h1>
+<p>知道了两者的 ip 地址，我们还需要两者开放的端口才能进行通讯。一般情况下，SSH 的数据传输端口默认都是 22, 而手机出于安全考虑，对上数值比较小的端口管的比较严，因此手机上的 SSH 开放的是 8022 端口. <em>端口号可以在配置文件里自行更改，这里直接使用默认的端口号.</em></p>
+<p>获取了服务端的与客户端的信息后 (ip 地址，端口，用户名), 我们就能够开始尝试连接了:</p>
+<ul>
+<li>从 Termux 访问 Windows</li>
+</ul>
+<p>首先，<b>以管理员身份</b>在 Windows 的 PowerShell 中输入以下命令启动 ssh 服务:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 注意此时Windows是作为服务端, 服务名称应该是sshd而不是ssh</span></span><br><span class="line">net start sshd</span><br></pre></td></tr></table></figure>
+<p>然后在 Termux 输入以下命令即</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh WinUser@win_ip</span><br></pre></td></tr></table></figure>
+<ul>
+<li>从 Windows 访问 Termux</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh TermuxUser@termux_ip -p 8022</span><br></pre></td></tr></table></figure>
+<p>连接服务端时，需要提供用户名和密码。用户名可以在 Powershell 输入  <code>whoami</code>  获取，返回的结果为  <code>计算机名\当前用户名</code> ，如果当前用户使用 Microsoft 账户登录，则密码为当前用户 Microsoft 账号的密码；如果当前用户使用本地管理员账户 (域账户), 则密码对应本地管理员账户的登录密码.</p>
+<h1 id="part-4-使用免密登录"><a class="markdownIt-Anchor" href="#part-4-使用免密登录">#</a> Part 4. 使用免密登录</h1>
+<p>完成前面的操作之后我们会发现：每一次传输文件都需要输入密码，很是麻烦， 而且可能有人还是对通讯过程的安全性有顾虑。那么，有没有什么办法能做到既不用密码登录又能保证通讯过程安全呢？答案是：有的。所以接下来将介绍如何免密使用 SSH 登录与访问.</p>
+<h2 id="windows免密登录termux"><a class="markdownIt-Anchor" href="#windows免密登录termux">#</a> Windows 免密登录 Termux</h2>
+<p>Windows 使用</p>
+<h2 id="termux免密登录windows"><a class="markdownIt-Anchor" href="#termux免密登录windows">#</a> Termux 免密登录 Windows</h2>
+<p>Tremux 免密登录 Windows 比较特别，由于 SSH 本身对免密登录的账户及文件夹权限限制比较多，所以需要为特定的文件和文件夹设置权限.<br>
+ 然而网络上大多数教程针对的是 Linux 文件夹权限的修改，我最后所找到的解决办法在<span class="exturl" data-url="aHR0cHM6Ly9sZWFybi5taWNyb3NvZnQuY29tL3poLWNuL3dpbmRvd3Mtc2VydmVyL2FkbWluaXN0cmF0aW9uL29wZW5zc2gvb3BlbnNzaF9rZXltYW5hZ2VtZW50"> Windows 官方文档</span>里 (微软的文档真的给力).</p>
+<p>此处按登录的用户在 Windows 中的分组有几种情况：用户为管理员身份 (在 Administrators 组中)、用户为标准用户身份 (不在 Administrators 组中).</p>
+<h3 id="a-登录用户为标准用户"><a class="markdownIt-Anchor" href="#a-登录用户为标准用户">#</a> a. 登录用户为标准用户</h3>
+<ol>
+<li>确保 Windows 上有名为 ssh 的文件夹，同时用户有权访问该文件夹及子文件夹.</li>
+</ol>
+<p>Windows 安装 SSH 服务后，一般会在 <code>C:\ProgramData</code>  下创建一个叫 ssh 的文件夹，存放的是作为 ssh 服务器时的配置。当使用 Windows 作为 ssh 客户端时，一般会在 <code>C:\Users\用户名</code> 下生成一个叫.ssh 的文件夹，用来存放作为 ssh 客户端的配置；如果找不到.ssh 文件夹则需要自己在这个目录下创建一个.</p>
+<p>如果没有.ssh 文件夹可以通过以下命令远程创建:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">这里填的是要登陆服务器的用户名与服务器地址</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">其中的username为用户名, domain1@contoso.com为服务端的ip地址或域名</span></span><br><span class="line">ssh username@domain1@contoso.com mkdir C:\Users\username\.ssh\</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>将本地生成的<p>公钥</p>发送到 Windows 服务器</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将本地生成的公钥发送到服务端的authorized_key中</span></span><br><span class="line">scp ~\.ssh\id_ed25519.pub user1@domain1@contoso.com:C:\Users\username\.ssh\authorized_keys</span><br></pre></td></tr></table></figure>
+<h3 id="b-登录用户为管理员"><a class="markdownIt-Anchor" href="#b-登录用户为管理员">#</a> b. 登录用户为管理员</h3>
+<ol>
+<li>首先要确保 Windows 上有名为 ssh 的文件夹，如果没有可以通过以下命令远程创建:</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">即: 要登录Win的用户名@服务器ip地址</span></span><br><span class="line">ssh user1@domain1@contoso.com mkdir C:\ProgramData\ssh\</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>将本地生成的<p>公钥<p>(带.pub 后缀那个) 发送到 Windows 服务器.</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp C:\Users\username\.ssh\id_ed25519.pub user1@domain1@contoso.com:C:\ProgramData\ssh\administrators_authorized_keys</span><br></pre></td></tr></table></figure>
+<p><font color=#76FFCD><b>请注意，此时是将公钥存放到 <code>C:\ProgramData\ssh</code>  文件夹而不是用户文件夹，而且要将公钥文件 (含后缀) 改名为 <code>administrators_authorized_keys</code> .</b></font></p>
+<ol start="3">
+<li>配置 ACL</li>
+</ol>
+<p>在客户端命令如下:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh --% WinUser@domain1@contoso.com icacls.exe &quot;C:\ProgramData\ssh\administrators_authorized_keys&quot; /inheritance:r /grant &quot;Administrators:F&quot; /grant &quot;SYSTEM:F&quot;</span><br></pre></td></tr></table></figure>
+<p>在服务端则直接输入以下命令 (在服务端是全局命令，不需要考虑命令执行的位置):</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">icacls.exe &quot;C:\ProgramData\ssh\administrators_authorized_keys&quot; /inheritance:r /grant &quot;Administrators:F&quot; /grant &quot;SYSTEM:F&quot;</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>重启服务端</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">net stop sshd</span><br><span class="line">net start sshd</span><br></pre></td></tr></table></figure>
+<h1 id="part-5-管理多个服务器客户端用户"><a class="markdownIt-Anchor" href="#part-5-管理多个服务器客户端用户">#</a> Part 5. 管理多个服务器 / 客户端用户</h1>
+<p>当我们通过生成密钥对的方式实现免密登录后，如果要登录的主机比较多，我们就需要记住很多组用户名与 ip 地址，这时候我们就想有一个方法，将每个要访问的服务器 / 客户端的信息贴上一个标签，然后通过输入标签来访问服务器，这就是 config 文件在做的事. config 文件中按规范记录了每个服务器 / 客户端的 ip 地址、用户名、访问端口与密码等，并为每个对象贴上一个可以自定义的标签，我们只需要配置好标签的信息就能直接通过标签进行 SSH 访问，非常方便，下面介绍方法.</p>
+<p>config 文件书写格式如下:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Host github</span><br><span class="line">   HostName 140.82.112.4</span><br><span class="line">   User git</span><br><span class="line">   Port 22</span><br><span class="line">   IdentityFile ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
+<p>或者不使用缩进，其格式如下:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Host github</span><br><span class="line">HostName 140.82.112.4</span><br><span class="line">User git</span><br></pre></td></tr></table></figure>
+<p>需要注意的是 config 文件需要自己创建。同时配置文件是放在<b><font color=#76FFCD>.ssh 文件夹下</font></b>, 注意不要搞错了.<br>
+ 而皮质文件可用的具体选项及说明可以一查看官方文档 <span class="exturl" data-url="aHR0cHM6Ly93d3cuc3NoLmNvbS9hY2FkZW15L3NzaC9jb25maWc=">https://www.ssh.com/academy/ssh/config</span></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Host Termux</span><br><span class="line">   HostName 140.233.43.123</span><br><span class="line">   Port 8022</span><br><span class="line">   User u0_a312</span><br><span class="line">   IdentityFile ~/.ssh/id_rsa_MyTermux</span><br><span class="line">   passwordAuthentication no</span><br></pre></td></tr></table></figure>
+<p>IdentityFile 是指定连接时校验的密钥；passwordAuthentication 是密码认证，如果使用密钥登录（免密登录）则关闭它避免每次连接都要输入密码.</p>
+<h2 id="windows配置"><a class="markdownIt-Anchor" href="#windows配置">#</a> Windows 配置</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Host termux(别名, 随便起)</span><br><span class="line">   HostName Termux的ip</span><br><span class="line">   User 登录Termux的用户名</span><br><span class="line">   IdentityFile ~/.ssh/私钥a</span><br><span class="line">   passwordAuthentication no</span><br></pre></td></tr></table></figure>
+<h2 id="termux配置"><a class="markdownIt-Anchor" href="#termux配置">#</a> Termux 配置</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">HostName win10(别名, 方便自己记)</span><br><span class="line">   HostName windows的ip</span><br><span class="line">   User 登录Windows的用户名</span><br><span class="line">   IdentityFile ~/.ssh/私钥b</span><br><span class="line">   passwordAuthentication no</span><br></pre></td></tr></table></figure>
+<h2 id="连接和使用"><a class="markdownIt-Anchor" href="#连接和使用">#</a> 连接和使用</h2>
+<p>在完成了上述配置后，双方开启 sshd 服务就能使用了.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Windows连接Termux</span></span><br><span class="line">ssh Termux</span><br><span class="line"></span><br><span class="line"><span class="comment"># Termux连接Windows</span></span><br><span class="line">ssh win10</span><br></pre></td></tr></table></figure>
+<h1 id="参考文章"><a class="markdownIt-Anchor" href="#参考文章">#</a> 参考文章</h1>
+<ul>
+<li>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuc3Fsc2VjLmNvbS8yMDE4LzA1L3Rlcm11eC5odG1s">【国光的个人博客】Trtmux 高级终端安装配置使用教程</span></p>
+</li>
+<li>
+<p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NjI0Njg1L2FydGljbGUvZGV0YWlscy8xMjI2MzEwODM=">【CSDN（转载）】windows 无法使用 ssh-copy-id 解决办法</span></p>
+</li>
+<li>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC8wNmYzYjJkMWViZGM=">【简书（原文）】Windows 下设置 SSH 免密</span></p>
+</li>
+<li>
+<p><span class="exturl" data-url="aHR0cHM6Ly9zdXBlcnVzZXIuY29tL3F1ZXN0aW9ucy8xNTIyNDY2L29wZW5zc2gtbm90LWFjY2VwdGluZy1teS1sb2dpbi1wYXNzd29yZA==">【superuser】OpenSSH not accepting my login password</span></p>
+</li>
+<li>
+<p><span class="exturl" data-url="aHR0cHM6Ly9sZWFybi5taWNyb3NvZnQuY29tL3poLWNuL3dpbmRvd3Mtc2VydmVyL2FkbWluaXN0cmF0aW9uL29wZW5zc2gvb3BlbnNzaF9rZXltYW5hZ2VtZW50">【Microsoft】OpenSSH 密钥管理</span></p>
+</li>
+</ul>
+
+      <div class="tags">
+          <a href="/tags/ssh-termux-windows/" rel="tag"><i class="ic i-tag"></i> ssh, termux, windows</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2022-11-21 11:53:54" itemprop="dateModified" datetime="2022-11-21T11:53:54+08:00">2022-11-21</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="Smilium LeaFAT WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="Smilium LeaFAT Alipay">
+        <p>Alipay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Smilium LeaFAT PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Smilium LeaFAT <i class="ic i-at"><em>@</em></i>Hexo
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="https://smilium-leafat.github.io/2022/10/14/Termux-Windows%E9%80%9A%E8%BF%87SSH%E4%BA%A4%E4%BA%92-22-10-14-1856/" title="Termux Windows 通过 SSH 交互">https://smilium-leafat.github.io/2022/10/14/Termux-Windows通过SSH交互-22-10-14-1856/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2022/10/14/Hexo%E5%91%BD%E4%BB%A4%E6%89%8B%E5%86%8C_22-10-14-0006/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipeuibk9fj20zk0m8ay2.jpg" title="Hexo命令手册">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>Hexo命令手册</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2022/10/25/Python%E9%85%8D%E7%BD%AEpip%E7%BC%93%E5%AD%98%E5%8F%8A%E6%A8%A1%E5%9D%97%E4%BD%8D%E7%BD%AE-22-10-25-1054/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicit31ffoj20zk0m8naf.jpg" title="Windows配置pip缓存及python模块安装位置_22-10-25-1054">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>Windows配置pip缓存及python模块安装位置_22-10-25-1054</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#part-0-%E5%BA%8F"><span class="toc-number">1.</span> <span class="toc-text"> Part 0. 序</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A3%9F%E7%94%A8%E6%B3%A8%E6%84%8F"><span class="toc-number">1.0.1.</span> <span class="toc-text"> 食用注意</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#part-1-ssh%E4%B8%8Essh%E5%8D%8F%E8%AE%AE"><span class="toc-number">2.</span> <span class="toc-text"> Part 1. SSH 与 SSH 协议</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#part-2-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%9A%84%E5%87%86%E5%A4%87"><span class="toc-number"></span> <span class="toc-text"> Part 2. 服务端的准备</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E4%BA%8Edhcp%E5%88%86%E9%85%8D%E7%9A%84ip%E5%9C%B0%E5%9D%80"><span class="toc-number">1.</span> <span class="toc-text"> 对于 DHCP 分配的 ip 地址</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#part-3-%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%9A%84%E5%87%86%E5%A4%87"><span class="toc-number"></span> <span class="toc-text"> Part 3. 客户端的准备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#part-3-%E4%BD%BF%E7%94%A8%E7%94%A8%E6%88%B7%E5%90%8D%E4%B8%8E%E5%AF%86%E7%A0%81%E8%BF%9E%E6%8E%A5"><span class="toc-number"></span> <span class="toc-text"> Part 3. 使用用户名与密码连接</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#part-4-%E4%BD%BF%E7%94%A8%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95"><span class="toc-number"></span> <span class="toc-text"> Part 4. 使用免密登录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#windows%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95termux"><span class="toc-number">1.</span> <span class="toc-text"> Windows 免密登录 Termux</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#termux%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95windows"><span class="toc-number">2.</span> <span class="toc-text"> Termux 免密登录 Windows</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#a-%E7%99%BB%E5%BD%95%E7%94%A8%E6%88%B7%E4%B8%BA%E6%A0%87%E5%87%86%E7%94%A8%E6%88%B7"><span class="toc-number">2.1.</span> <span class="toc-text"> a. 登录用户为标准用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#b-%E7%99%BB%E5%BD%95%E7%94%A8%E6%88%B7%E4%B8%BA%E7%AE%A1%E7%90%86%E5%91%98"><span class="toc-number">2.2.</span> <span class="toc-text"> b. 登录用户为管理员</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#part-5-%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AA%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%94%A8%E6%88%B7"><span class="toc-number"></span> <span class="toc-text"> Part 5. 管理多个服务器 &#x2F; 客户端用户</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#windows%E9%85%8D%E7%BD%AE"><span class="toc-number">1.</span> <span class="toc-text"> Windows 配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#termux%E9%85%8D%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text"> Termux 配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5%E5%92%8C%E4%BD%BF%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text"> 连接和使用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0"><span class="toc-number"></span> <span class="toc-text"> 参考文章</span></a>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Smilium LeaFAT"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Smilium LeaFAT</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">9</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">6</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2022/10/14/Hexo%E5%91%BD%E4%BB%A4%E6%89%8B%E5%86%8C_22-10-14-0006/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2022/10/25/Python%E9%85%8D%E7%BD%AEpip%E7%BC%93%E5%AD%98%E5%8F%8A%E6%A8%A1%E5%9D%97%E4%BD%8D%E7%BD%AE-22-10-25-1054/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2022/11/05/Windows-for-Git%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/" title="Windows for Git安装与配置">Windows for Git安装与配置</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2022/10/25/Python%E9%85%8D%E7%BD%AEpip%E7%BC%93%E5%AD%98%E5%8F%8A%E6%A8%A1%E5%9D%97%E4%BD%8D%E7%BD%AE-22-10-25-1054/" title="Windows配置pip缓存及python模块安装位置_22-10-25-1054">Windows配置pip缓存及python模块安装位置_22-10-25-1054</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2022/11/19/%E4%BB%B7%E6%A0%BC%E6%AD%A7%E8%A7%86-2022-11-19/" title="价格歧视_2022-11-19">价格歧视_2022-11-19</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2022/07/29/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" title="我的第一篇博客文章">我的第一篇博客文章</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2022/11/18/ArchLinux%E9%85%8D%E7%BD%AEfcitx5%E5%B0%8F%E7%8B%BC%E6%AF%AB%E8%BE%93%E5%85%A5%E6%B3%95-22-11-18-1100/" title="ArchLinux配置fcitx5小狼毫输入法_22-11-18-1100">ArchLinux配置fcitx5小狼毫输入法_22-11-18-1100</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2022/10/13/%E4%BD%BF%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2_22-10-13-2349/" title="Windows使用Hexo搭建github博客">Windows使用Hexo搭建github博客</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2022/10/14/Termux-Windows%E9%80%9A%E8%BF%87SSH%E4%BA%A4%E4%BA%92-22-10-14-1856/" title="Termux Windows 通过 SSH 交互">Termux Windows 通过 SSH 交互</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2022/07/29/hello-world/" title="Hello World">Hello World</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2022/10/14/Hexo%E5%91%BD%E4%BB%A4%E6%89%8B%E5%86%8C_22-10-14-0006/" title="Hexo命令手册">Hexo命令手册</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Smilium LeaFAT @ Smilium LeaFAT</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2022/10/14/Termux-Windows通过SSH交互-22-10-14-1856/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

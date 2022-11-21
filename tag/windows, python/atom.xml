@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://smilium-leafat.github.io</id>
+    <title>Hexo • Posts by &#34;windows, python&#34; tag</title>
+    <link href="https://smilium-leafat.github.io" />
+    <updated>2022-10-25T02:54:52.000Z</updated>
+    <category term="ssh, termux, windows" />
+    <category term="Windows, Python" />
+    <category term="hexo" />
+    <category term="git" />
+    <category term="学业 经济学" />
+    <category term="Arch 输入法" />
+    <entry>
+        <id>https://smilium-leafat.github.io/2022/10/25/Python%E9%85%8D%E7%BD%AEpip%E7%BC%93%E5%AD%98%E5%8F%8A%E6%A8%A1%E5%9D%97%E4%BD%8D%E7%BD%AE-22-10-25-1054/</id>
+        <title>Windows配置pip缓存及python模块安装位置_22-10-25-1054</title>
+        <link rel="alternate" href="https://smilium-leafat.github.io/2022/10/25/Python%E9%85%8D%E7%BD%AEpip%E7%BC%93%E5%AD%98%E5%8F%8A%E6%A8%A1%E5%9D%97%E4%BD%8D%E7%BD%AE-22-10-25-1054/"/>
+        <content type="html">&lt;blockquote&gt;
+&lt;p&gt;本文遵守&lt;br&gt;
+参考来源见末尾 &amp;quot;参考来源&amp;quot; 处.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;修改pip缓存位置&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#修改pip缓存位置&#34;&gt;#&lt;/a&gt; 修改 pip 缓存位置&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;创建新存放 pip 文件夹&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;例如，Python 安装路径为 &lt;code&gt;D:\Software\Python\Python&lt;/code&gt;  中，可在 &lt;code&gt;D:\Software\Python&lt;/code&gt;  下新建文件夹 pipcache 作为新的 pip 缓存位置.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;设置缓存位置&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在命令行中使用以下命令重新指定 pip 缓存位置:&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;pip config set global.cache-dir &amp;quot;D:\Software\Python\pip\pipcache&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;若出现 &lt;code&gt;Writing to C:\Users\user_name\AppData\Roaming\pip\pip.ini&lt;/code&gt;  即为成功.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;删除旧 pip 缓存&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在资源管理器中输入 &lt;code&gt;%LocalAppData%&lt;/code&gt;  并回车，在跳转到的目录下找到并删除 pip 文件夹.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;修改 pip 配置文件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在资源管理器中输入 &lt;code&gt;%AppData%&lt;/code&gt;  并回车，在跳转到的 Roaming 文件夹下使用代码编辑器 (不要用 Windows 自带的记事本，容易出现奇怪的问题) 修改或新建 pip.ini 文件，修改 / 添加以下内容 (一定要在 [global] 下方) 后保存:&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;[global]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cache-dir = D:\Software\Python\pip\pipcache&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&#34;修改python模块安装位置&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#修改python模块安装位置&#34;&gt;#&lt;/a&gt; 修改 python 模块安装位置&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;查看模块当前的路径配置&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;python -m site --help&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;修改路径&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在自己选定的目录下按格式 (如下文) 创建文件夹，使用代码编辑器打开 site.py 文件，找到以下内容并修改目录指向创建的文件夹:&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;USER_SITE = &lt;span class=&#34;string&#34;&gt;r&amp;quot;D:\\Software\Python\PythonDir\\venv\lib\\site-packages&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;USER_BASE = &lt;span class=&#34;string&#34;&gt;r&amp;quot;D:\\Software\Python\PythonDir&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;检验结果&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;输入以下命令查看结果:&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;python -m site&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;显示结果含有类似以下内容，同时其中路径正确且末尾有 &amp;quot;exists&amp;quot; 即修改成功:&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;USER_BASE: `D:\\Software\\Python\\PythonDir` (exists)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;USER_SITE: `D:\\Software\\Python\\PythonDir\\venv\\lib\\site-packages` (exists)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ENABLE_USER_SITE: True&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h1 id=&#34;参考来源&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#参考来源&#34;&gt;#&lt;/a&gt; 参考来源&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vbGVob3NvL3AvMTU1NTAwOTEuaHRtbA==&#34;&gt;【博客园】李好秀 BY-NC-SA 修改 Windows 中 pip 的缓存位置与删除 pip 缓存&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vdGhhbm9zLXJ5YW4vcC8xMzM3OTkwOS5odG1s&#34;&gt;【博客园】Hello_Thanos python 安装模块及模块安装路径配置&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        <category term="Windows, Python" />
+        <updated>2022-10-25T02:54:52.000Z</updated>
+    </entry>
+</feed>

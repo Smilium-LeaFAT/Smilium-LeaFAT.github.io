@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://smilium-leafat.github.io</id>
+    <title>Hexo • Posts by &#34;hexo&#34; tag</title>
+    <link href="https://smilium-leafat.github.io" />
+    <updated>2022-10-13T15:50:37.000Z</updated>
+    <category term="ssh, termux, windows" />
+    <category term="Windows, Python" />
+    <category term="hexo" />
+    <category term="git" />
+    <category term="学业 经济学" />
+    <category term="Arch 输入法" />
+    <entry>
+        <id>https://smilium-leafat.github.io/2022/10/13/%E4%BD%BF%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2_22-10-13-2349/</id>
+        <title>Windows使用Hexo搭建github博客</title>
+        <link rel="alternate" href="https://smilium-leafat.github.io/2022/10/13/%E4%BD%BF%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2_22-10-13-2349/"/>
+        <content type="html">&lt;h1 id=&#34;0-序&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#0-序&#34;&gt;#&lt;/a&gt; 0. 序&lt;/h1&gt;
+&lt;p&gt;本文整理了博主使用 Hexo 框架在 Windows 平台搭建博客的过程，同时收集了部分搭建过程可能出现的错误。其中各步骤可能出现的报错内容及相应解决办法均被集中列在文章最后一节，在可能会报错的操作后会以 &amp;quot;&amp;quot;作为标记。点击标记即可跳转至文章最后一节相应位置，这一节部分后续或许会更新。文章参考的内容可在最后&amp;quot; 参考内容 &amp;quot; 部分查看.&lt;/p&gt;
+&lt;h1 id=&#34;1-工具安装及环境部署&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#1-工具安装及环境部署&#34;&gt;#&lt;/a&gt; 1. 工具安装及环境部署&lt;/h1&gt;
+&lt;p&gt;本文中，搭建博客需要的工具包括: Node.js、Git、Chocolatey (Node.js 安装附带)、npm (Node.js 安装附带)、Python (Node.js 安装附带) 与 cnpm (代替 npm 加快下载).&lt;/p&gt;
+&lt;h2 id=&#34;安装部署-git-环境&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装部署-git-环境&#34;&gt;#&lt;/a&gt; 安装部署 Git 环境&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;从 Git 官网&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRmb3J3aW5kb3dzLm9yZy8=&#34;&gt;下载 Git-for-Windows&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;配置 Git 环境 (配置方法详见 &amp;quot;Windows for Git 安装与配置&amp;quot;)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;安装nodejs及相关工具&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装nodejs及相关工具&#34;&gt;#&lt;/a&gt; 安装 Node.js 及相关工具&lt;/h2&gt;
+&lt;h3 id=&#34;1-下载nodejs&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#1-下载nodejs&#34;&gt;#&lt;/a&gt; 1. 下载 Node.js&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;从 Node.js 官网&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ub2RlanMub3JnL2VuLw==&#34;&gt;下载 Node.js&lt;/span&gt; 的&lt;strong&gt; LTS 版本&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;或选择&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ub2RlanMub3JnL2VuL2Rvd25sb2FkLw==&#34;&gt;下载其他版本&lt;/span&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;2-安装nodejs&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#2-安装nodejs&#34;&gt;#&lt;/a&gt; 2. 安装 Node.js&lt;/h3&gt;
+&lt;p&gt;双击打开下载的 msi 安装文件，选择安装路径，然后在 &amp;quot;Tools for Native Modules&amp;quot; 页面勾选 &amp;quot;Atuomatically install the necessary tools.&amp;quot; 选项，安装完成后会弹出 CMD 窗口并自动安装所需要的工具 (Chocolatey、Python 与 Vitural Studio 2019 工具).&lt;br&gt;
+ 其中，由于是国外网站，Python 的安装速度较慢，&lt;/p&gt;
+&lt;p&gt;检验是否安装完成:&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;查看Node.js版本&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;node -v&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;查看npm版本&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;npm -v&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;利用 npm 安装 cnpm 加快国内安装&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;npm install -g cnpm --registry=https://registry.npm.taobao.org&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;检验cnpm安装是否成功&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cnpm -v&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;安装 Hexo&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;cnpm install -g hexo-cli&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;检验是否安装完成&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hexo -v&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&#34;开始&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#开始&#34;&gt;#&lt;/a&gt; 开始&lt;/h2&gt;
+&lt;p&gt;新建一个文件夹来存放博客文件，直接删除博客文件夹即可删除整个博客.&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;在命令行中&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;mkdir 博客文件夹名称&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;在PowerShell中&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;New-Item -Path X:/xxx/xxx/ -Name 博客文件夹名称 -ItemType directory &lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h1 id=&#34;step-3-本地预览&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#step-3-本地预览&#34;&gt;#&lt;/a&gt; Step 3. 本地预览&lt;/h1&gt;
+&lt;p&gt;一般来说，一篇博客在部署到网站之前都需要经过多次预览与修改，这意味着我们要在本地上多次预览博客并根据根据预览情况进行调整，而 Hexo 正好提供了此功能，要在本地预览博客，只需要在终端输入如下命令:&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 启动博客, s时命令server的简写&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hexo s&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;此时如果弹出 Windows 安全中心警报选择&lt;strong&gt;允许访问&lt;/strong&gt;即可.&lt;/p&gt;
+&lt;h1 id=&#34;step-4-云端同步&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#step-4-云端同步&#34;&gt;#&lt;/a&gt; Step 4. 云端同步&lt;/h1&gt;
+&lt;p&gt;当我们在本地的博客 / 网站调整得差不多后，就要考虑将&lt;/p&gt;
+&lt;h1 id=&#34;报错处理&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#报错处理&#34;&gt;#&lt;/a&gt; 报错处理&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Error: error_name&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- picture[]() --&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Reason &amp;amp; Solution&lt;br&gt;
+One of Reasons is xxx. The solution is to xxx.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;报错内容:&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;font color=red&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;python not installed. An error occurred during installation:  &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; 操作超时&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/font&gt;
+`python package files upgrade failed with exit code 1. Performing other installation steps.`  
+&lt;font color=red&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;The upgrade of python was NOT successful.&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;python not installed. An error occurred during installation:  &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; 操作超时&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/font&gt;
+</content>
+        <category term="hexo" />
+        <updated>2022-10-13T15:50:37.000Z</updated>
+    </entry>
+</feed>

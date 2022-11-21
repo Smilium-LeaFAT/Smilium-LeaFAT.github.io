@@ -1,0 +1,18 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "Hexo • All posts by \"学业 经济学\" tag",
+    "description": "",
+    "home_page_url": "https://smilium-leafat.github.io",
+    "items": [
+        {
+            "id": "https://smilium-leafat.github.io/2022/11/19/%E4%BB%B7%E6%A0%BC%E6%AD%A7%E8%A7%86-2022-11-19/",
+            "url": "https://smilium-leafat.github.io/2022/11/19/%E4%BB%B7%E6%A0%BC%E6%AD%A7%E8%A7%86-2022-11-19/",
+            "title": "价格歧视_2022-11-19",
+            "date_published": "2022-11-18T16:48:55.000Z",
+            "content_html": "<p><span class=\"exturl\" data-url=\"aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU1JTgzJUI5JUU2JUEwJUJDJUU1JTg4JTg2JUU2JUFEJUE3\">zh.wikipedia.org/wiki/ 價格分歧</span></p>\n<h4 id=\"定义\"><a class=\"markdownIt-Anchor\" href=\"#定义\">#</a> 定义</h4>\n<p>生产者将<b>生产成本相同</b>的产品以<b>不同的价格</b>卖给不同的买家.</p>\n<h4 id=\"适用条件\"><a class=\"markdownIt-Anchor\" href=\"#适用条件\">#</a> 适用条件</h4>\n<ol>\n<li>\n<p>卖家<b>垄断</b>市场，同时<b>可以控制价格</b>;</p>\n</li>\n<li>\n<p>卖家能够了解消费者购买商品的愿望和能力 (即：知道各自的需求弹性)</p>\n</li>\n</ol>\n<h4 id=\"三个等级\"><a class=\"markdownIt-Anchor\" href=\"#三个等级\">#</a> 三个等级</h4>\n<ul>\n<li>\n<p>一级价格歧视</p>\n<p>即 “完全价格歧视”.</p>\n</li>\n<li>\n<p>二级价格歧视</p>\n</li>\n<li>\n<p>三级价格歧视</p>\n</li>\n</ul>\n",
+            "tags": [
+                "学业 经济学"
+            ]
+        }
+    ]
+}

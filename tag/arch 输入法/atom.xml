@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://smilium-leafat.github.io</id>
+    <title>Hexo • Posts by &#34;arch 输入法&#34; tag</title>
+    <link href="https://smilium-leafat.github.io" />
+    <updated>2022-11-18T03:01:01.000Z</updated>
+    <category term="ssh, termux, windows" />
+    <category term="Windows, Python" />
+    <category term="hexo" />
+    <category term="git" />
+    <category term="学业 经济学" />
+    <category term="Arch 输入法" />
+    <entry>
+        <id>https://smilium-leafat.github.io/2022/11/18/ArchLinux%E9%85%8D%E7%BD%AEfcitx5%E5%B0%8F%E7%8B%BC%E6%AF%AB%E8%BE%93%E5%85%A5%E6%B3%95-22-11-18-1100/</id>
+        <title>ArchLinux配置fcitx5小狼毫输入法_22-11-18-1100</title>
+        <link rel="alternate" href="https://smilium-leafat.github.io/2022/11/18/ArchLinux%E9%85%8D%E7%BD%AEfcitx5%E5%B0%8F%E7%8B%BC%E6%AF%AB%E8%BE%93%E5%85%A5%E6%B3%95-22-11-18-1100/"/>
+        <content type="html">&lt;h1 id=&#34;part-0-序&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#part-0-序&#34;&gt;#&lt;/a&gt; Part 0. 序&lt;/h1&gt;
+&lt;p&gt;本文将介绍如何在 Arch Linux 上以 fcitx5 为输入法框架配置 Rime 小狼毫输入法，以及词库的安装。所有内容结合了笔者实操过程的经 (踩) 验 (坑) 总 (经) 结 (历), 同时基于 Arch Wiki 与 Rime 官网教程.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;目标: fcitx5 输入法框架、Rime 小狼毫输入法、中文维基词库、萌娘百科词库&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;part-1-安装fcitx5输入法框架&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#part-1-安装fcitx5输入法框架&#34;&gt;#&lt;/a&gt; Part 1. 安装 fcitx5 输入法框架&lt;/h1&gt;
+&lt;p&gt;&lt;b&gt;注意: fcitx5 框架与 fcitx 框架不相兼容，安装前请确保已经完全删除 fcitx 框架相关的所有包和依赖！&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;截至本文发布，Arch Linux 官方源的 fcitx5 框架本体已被包含在 fcitx5-im 包组中，且后者还提供了配置工具和必要的输入法模块，因此只需要安装 fcitx5-im 即可，安装命令如下:&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;pacman -S fcitx5-im&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;由于 fcitx5 仅提供基本框架，且仅支持英文。如果要输入其他语言（例如中文或日文）, 则需要安装输入法引擎（IME）.&lt;/p&gt;
+&lt;h1 id=&#34;part-2-安装rime输入法引擎&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#part-2-安装rime输入法引擎&#34;&gt;#&lt;/a&gt; Part 2. 安装 Rime 输入法引擎&lt;/h1&gt;
+&lt;p&gt;输入法引擎笔者选用 Rime, 虽然配置起来比较复杂，但胜在高度的自定义。下面将介绍如何安装 Rime 输入法以及朙月拼音、Emoji 表情符号两种输入方案.&lt;/p&gt;
+&lt;p&gt;fcitx5 框架下的 rime 安装命令如下:&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;pacman -S fcitx5-rime&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;此时虽然安装了 rime, 但还需要输入方案才能工作，安装输入方案的命令如下:&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 安装朙月拼音（简体）输入方案&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pacman -S rime-luna-pinyin&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 安装emoji表情输入方案&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pacman -S rime-emoji&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h1 id=&#34;part-3-配置rime&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#part-3-配置rime&#34;&gt;#&lt;/a&gt; Part 3. 配置 Rime&lt;/h1&gt;
+&lt;p&gt;配置 Rime 有两种方法，一是直接修改对应输入法的配置文件（例如修改朙月拼音的配置文件 &lt;code&gt;luna_pinyin.yaml&lt;/code&gt; ）, 然后选择 &amp;quot;重新部署&amp;quot; 应用更改；另一种方法是在用户文件夹下创建输入法的副本，并在副本的输入法名与 &lt;code&gt;.yaml&lt;/code&gt;  之间添加 &lt;code&gt;.custom&lt;/code&gt; （例如将朙月拼音的配置文件副本 &lt;code&gt;luna_pinyin.yaml&lt;/code&gt;  改为 &lt;code&gt;luna_pinyin.custom.yaml&lt;/code&gt; ）, 然后修改副本，最后应用更改.&lt;br&gt;
+ 两种方法效果一致，但使用的一种方法修改的配置在每次更新 Rime 后都会被覆盖掉，而第二种方法则不会，因此推荐使用第二种方法修改.&lt;/p&gt;
+&lt;p&gt;按照第二种方法，首先创建文件夹存放配置文件&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;mkdir&lt;/span&gt; ~/.local/share/fcitx5/rime&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;然后在这个文件夹中创建 &lt;code&gt;default.custom.yaml&lt;/code&gt;  文件，指定可选输入法&lt;/p&gt;
+&lt;figure class=&#34;highlight yaml&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;patch:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;schema_list:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;schema:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;luna_pinyin&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;schema:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;emoji&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;配置完毕后进行部署，可以在输入法托盘选择 &amp;quot;重新部署&amp;quot;, 或者在终端输入以下命令重新部署&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;rm&lt;/span&gt; ~/.local/share/fcitx5/rime/default.yaml&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;fcitx5-remote -r&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+        <category term="Arch 输入法" />
+        <updated>2022-11-18T03:01:01.000Z</updated>
+    </entry>
+</feed>
